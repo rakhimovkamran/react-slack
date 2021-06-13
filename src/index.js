@@ -2,7 +2,7 @@ import { StrictMode } from "react"
 import { render } from "react-dom"
 import "assets/css/index.css"
 
-import { App } from "./App"
+import { Core } from "core"
 import { store } from "store"
 import { Provider } from "react-redux"
 
@@ -12,7 +12,7 @@ render(
     <StrictMode>
         <Provider store={store}>
             <Router>
-                <App />
+                <Core />
             </Router>
         </Provider>
     </StrictMode>,
