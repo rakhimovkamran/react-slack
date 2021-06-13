@@ -13,7 +13,7 @@ export const Header = () => {
 
             <S.Search>
                 <I.Search />
-                <input placeholder="Search #channel" />
+                <input spellCheck="false" placeholder="Search #channel" />
             </S.Search>
 
             <S.HeaderRight>
