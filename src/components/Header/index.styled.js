@@ -21,6 +21,7 @@ const HeaderLeft = styled.div`
     margin-left: 20px;
 
     > .MuiSvgIcon-root {
+        cursor: pointer;
         margin-left: auto;
         margin-right: 30px;
 
