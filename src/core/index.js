@@ -4,6 +4,8 @@ import { S } from "./index.styled"
 import { Header } from "components/Header"
 import { Sidebar } from "components/Sidebar"
 
+import { Chat } from "pages/Chat"
+
 export const Core = () => {
     return (
         <>
@@ -12,7 +14,7 @@ export const Core = () => {
                 <Sidebar />
                 <Switch>
                     <Route path="/" exact>
-                        {/* Chat */}
+                        <Chat />
                     </Route>
                 </Switch>
             </S.ApplicationWrapper>
