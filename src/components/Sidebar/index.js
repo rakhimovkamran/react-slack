@@ -1,5 +1,6 @@
 import { useCollection } from "react-firebase-hooks/firestore"
-import { db } from "constants/firebase.config"
+import { useAuthState } from "react-firebase-hooks/auth"
+import { db, auth } from "constants/firebase.config"
 
 import { S } from "./index.styled"
 import { I } from "./index.icons"
@@ -7,16 +8,17 @@ import { I } from "./index.icons"
 import { SidebarOption } from "components/SidebarOption"
 
 export const Sidebar = () => {
+    const [user] = useAuthState(auth)
     const [channels] = useCollection(db.collection("rooms"))
 
     return (
         <S.Container>
             <S.Header>
                 <S.Info>
-                    <h2>AppliedLabs</h2>
+                    <h2>Slack</h2>
                     <h3>
                         <I.Circle />
-                        Rakhimov Kamran
+                        {user?.displayName}
                     </h3>
                 </S.Info>
                 <I.Pen />

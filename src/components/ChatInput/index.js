@@ -1,13 +1,16 @@
 import { useState } from "react"
 
 import firebase from "firebase"
-import { db } from "constants/firebase.config"
+import { db, auth } from "constants/firebase.config"
 
 import { S } from "./index.styled"
 import { Button } from "@material-ui/core"
 
+import { useAuthState } from "react-firebase-hooks/auth"
+
 export const ChatInput = ({ channelName, roomID, chatBottomRef }) => {
     const [input, setInput] = useState("")
+    const [user] = useAuthState(auth)
 
     const sendMessage = (e) => {
         e.preventDefault()
@@ -22,9 +25,8 @@ export const ChatInput = ({ channelName, roomID, chatBottomRef }) => {
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 
                 user: {
-                    email: "rakhimovkamran@gmail.com",
-                    profileImage:
-                        "https://avatars.githubusercontent.com/u/38936315?v=4",
+                    displayName: user?.displayName,
+                    profileImage: user?.photoURL,
                 },
             })
 

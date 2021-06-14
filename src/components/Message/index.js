@@ -7,7 +7,7 @@ export const Message = ({ message, timestamp, user }) => {
 
             <S.Info>
                 <h4>
-                    {user?.email}{" "}
+                    {user?.displayName}{" "}
                     <span>{new Date(timestamp?.toDate()).toUTCString()}</span>
                 </h4>
 
